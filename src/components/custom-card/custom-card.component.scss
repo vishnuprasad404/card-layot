@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+
+.custom-card {
+    width: 380px;
+    height: 470px;
+    background-color: #29303E;
+    color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 18px;
+    font-family: 'Roboto';
+    position: relative;
+
+    .card-header {
+        padding: 40px 35px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 10%);
+        display: flex;
+
+        .card-header-information {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            &:nth-child(2) {
+                margin-top: 20px;
+            }
+
+            .header-label,
+            .header-value {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                &.status{
+                    &.closed{
+                        color: #90FF7E;
+                    }
+                    &.requested{
+                        color: #FF9D00;
+                    }
+                    &.blocked{
+                        color: #FE6F62;
+                    }
+                }
+            }
+        }
+    }
+    .card-multi-image-preview{
+        padding: 0 35px;
+        padding-bottom: 15px;
+        margin-top: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 10%);
+        display: flex;
+        align-items: center;
+    }
+
+    .card-body {
+        padding: 30px 35px;
+        .card-body-information {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba(255, 255, 255, 10%);
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+
+            }
+
+            .body-label,
+            .body-value {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            .body-label {
+                display: flex;
+                align-items: center;
+                .body-label-icon {
+                    margin-right: 15px;
+                    width: 18px;
+                    height: 18px;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+        }
+    }
+
+    .card-footer {
+        padding: 40px 35px;
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        
+        .footer-view-more-button{
+            background-color: #95A3FC;
+            border: none;
+            border-radius: 4px;
+            height: 57px;
+            width: 100%;
+            font-size: 18px;
+
+        }
+        .footer-document-view-button,.footer-close-button{
+           min-width: 57px; 
+           height: 57px;
+           background-color: rgba(0, 0, 0, 30%);
+           border-radius: 5px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: #95A3FC;
+        }
+        .footer-close-button{
+            color: #F44B50;
+        }
+    }
+
+    .card-image{
+        width: 62px;
+        height: 62px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+
+    &.card-medium{
+        width: 480px ;
+    }
+    &.card-large{
+        width: 580px ;
+    }
+
+    &.multi-image-view{
+        grid-template-rows: auto auto 1fr auto;
+
+        .card-header,.card-body{
+            padding: 20px 35px;
+        }
+    }
+
+    .action-overlay{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 273px;
+        background-color: #5C3742;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .action-close-icon{
+            margin-bottom: 45px;
+        }
+
+        .action-message{
+            max-width: 60%;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .action-buttons{
+            .action-button{
+                width: 84px;
+                height: 30px;
+                background-color: #F44B50;
+                border-radius: 30px;
+                border: none;
+                color: white;
+                font-size: 18px;
+                &:last-child{
+                    margin-left: 10px;
+                    background: none;
+                }
+            }
+        }
+
+    }
+}

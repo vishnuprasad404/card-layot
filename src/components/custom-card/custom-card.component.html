@@ -1,0 +1,41 @@
+<div class="custom-card"
+    [ngClass]="{'multi-image-view' : multiImages?.length > 1, 'card-medium' : type === 'medium', 'card-large' : type === 'large' }">
+    <div class="card-header">
+        <ng-container *ngIf="singleImage && !multiImages">
+            <img class="card-image single-image" [src]="singleImage" alt=""
+                onerror='this.src="./assets/placeholder.png"'>
+        </ng-container>
+        <div>
+            <ng-container [ngTemplateOutlet]="cardHeader"></ng-container>
+        </div>
+    </div>
+    <ng-container *ngIf="multiImages?.length && !singleImage">
+        <div class="card-multi-image-preview">
+            <ng-container *ngFor="let image of multiImages | slice:0:3 ">
+                <img class="card-image multi-image" [src]="image" alt="" onerror='this.src="./assets/placeholder.png"'>
+            </ng-container>
+            <span *ngIf="multiImages?.length > 3">+{{multiImages.length - 3}} items</span>
+        </div>
+    </ng-container>
+    <div class="card-body">
+        <ng-container [ngTemplateOutlet]="cardBody"></ng-container>
+    </div>
+    <div class="card-footer">
+        <button *ngIf="canShowViewMore" (click)="triggerViewMore()" class="footer-view-more-button">View more</button>
+        <div (click)="triggerShowDocument()" *ngIf="canShowDocument" class="footer-document-view-button">
+            <i class="sila icon-la-close fa fa-car"></i>
+        </div>
+        <div (click)="triggerClose()" *ngIf="canShowClose" class="footer-close-button">
+            <i class="sila icon-la-close fa fa-close"></i>
+        </div>
+    </div>
+
+    <div class="action-overlay" *ngIf="canShowActionPanel">
+        <i class="icon-la-close fa fa-close action-close-icon"></i>
+        <span class="action-message">Are you sure want to cancel this return request?</span>
+        <div class="action-buttons">
+            <button class="action-button" (click)="onAction(true)" >Yes</button>
+            <button class="action-button" (click)="onAction(false)" >Discard</button>
+        </div>
+    </div>
+</div>
